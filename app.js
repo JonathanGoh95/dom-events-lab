@@ -1,7 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 const buttons = document.querySelectorAll(".button");
 const calculator = document.querySelector("#calculator");
-let display = document.querySelector(".display");
+const display = document.querySelector(".display");
 
 // buttons.forEach((button) => {
 //   calculator.addEventListener("click", (event) => {
