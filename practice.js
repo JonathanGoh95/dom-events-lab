@@ -31,3 +31,5 @@ const computeRemainder = (dividend, divisor) => {
 console.log(computeRemainder(10, 2)); //=> 0
 console.log(computeRemainder(4, 0)); //=> Infinity
 console.log(computeRemainder(10.5, 3)); //=> 1.5
+console.log(computeRemainder(24, 5));
+console.log(computeRemainder(76, 7));
