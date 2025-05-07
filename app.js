@@ -67,7 +67,18 @@ calculator.addEventListener("click", (event) => {
       let result = display.textContent.split("/").map(Number);
       display.textContent = operatorFuncs("/", result);
     }
-    setTimeout(() => (display.textContent = ""), 5000); //Clears Display within 5 seconds after clicking the Equal Button
+    const dispTimeout = setTimeout(() => {
+      display.textContent = "";
+    }, 5000); //Clears Display within 5 seconds after clicking the Equal Button
+    calculator.addEventListener("click", (event) => {
+      if (
+        //If user clicks a number of operator button within 5 seconds of clicking the Equal button, the timeout function will be removed.
+        event.target.classList.contains("number") ||
+        event.target.classList.contains("operator")
+      ) {
+        clearTimeout(dispTimeout);
+      }
+    });
   }
 });
 
