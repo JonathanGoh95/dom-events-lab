@@ -2,18 +2,18 @@
 const buttons = document.querySelectorAll(".button");
 const calculator = document.querySelector("#calculator");
 const display = document.querySelector(".display");
-
 /*-------------------------------- Variables --------------------------------*/
 
 /*------------------------ Cached Element References ------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
+display.textContent = "0"; //Loads up the calculator with a display value of 0
 calculator.addEventListener("click", (event) => {
-  // This log is for testing purposes to verify we're getting the correct value
-  // You have to click a button to see this log
-  // console.log(event.target.innerText);
-
-  // Example (Do something with a number)
+  //Clears the display field if a 0 is inside it upon clicking any of the number buttons
+  if (display.textContent === "0") {
+    display.textContent = "";
+  }
+  //Appends the respective numbers to the display upon clicking
   if (event.target.classList.contains("number")) {
     if (event.target.innerText === "0") {
       display.textContent += 0;
@@ -38,7 +38,7 @@ calculator.addEventListener("click", (event) => {
     }
   }
 
-  // Example (Do something with this operator)
+  //Appends the respective operator symbols to the display upon clicking
   if (event.target.classList.contains("operator")) {
     if (event.target.innerText === "+") {
       display.textContent += "+";
@@ -49,10 +49,12 @@ calculator.addEventListener("click", (event) => {
     } else if (event.target.innerText === "/") {
       display.textContent += "/";
     } else if (event.target.innerText === "C") {
-      display.textContent = "";
+      //Sets the display value to 0 when the 'C' button is clicked
+      display.textContent = "0";
     }
   }
 
+  //Performs the respective arithmetic operations
   if (event.target.innerText === "=") {
     if (display.textContent.includes("+")) {
       let result = display.textContent.split("+").map(Number);
@@ -67,12 +69,14 @@ calculator.addEventListener("click", (event) => {
       let result = display.textContent.split("/").map(Number);
       display.textContent = operatorFuncs("/", result);
     }
+
+    //Clears Display within 5 seconds after clicking the Equal Button
     const dispTimeout = setTimeout(() => {
       display.textContent = "";
-    }, 5000); //Clears Display within 5 seconds after clicking the Equal Button
+    }, 5000);
+    //If user clicks a number of operator button within 5 seconds of clicking the Equal button, the timeout function will be removed.
     calculator.addEventListener("click", (event) => {
       if (
-        //If user clicks a number of operator button within 5 seconds of clicking the Equal button, the timeout function will be removed.
         event.target.classList.contains("number") ||
         event.target.classList.contains("operator")
       ) {
@@ -83,6 +87,7 @@ calculator.addEventListener("click", (event) => {
 });
 
 /*-------------------------------- Functions --------------------------------*/
+//Function for handling the respective arithmetic operations using the array iterator reduce method
 const operatorFuncs = (oper, output) => {
   if (oper === "+") {
     return output.reduce((acc, num) => acc + num);
