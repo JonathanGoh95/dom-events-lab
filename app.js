@@ -1,5 +1,4 @@
 /*-------------------------------- Constants --------------------------------*/
-const buttons = document.querySelectorAll(".button");
 const calculator = document.querySelector("#calculator");
 const display = document.querySelector(".display");
 /*-------------------------------- Variables --------------------------------*/
