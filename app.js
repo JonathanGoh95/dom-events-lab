@@ -2,28 +2,7 @@
 const buttons = document.querySelectorAll(".button");
 const calculator = document.querySelector("#calculator");
 const display = document.querySelector(".display");
-
-// buttons.forEach((button) => {
-//   calculator.addEventListener("click", (event) => {
-//     // This log is for testing purposes to verify we're getting the correct value
-//     // console.log(event.target.innerText);
-//     // Future logic to capture the button's value would go here...
-//     // You have to click a button to see this log
-//     // console.log(event.target.innerText);
-
-//     // Example
-//     if (event.target.classList.contains("number")) {
-//       if (event.target.innerText === 7) {
-//         display.textContent = 7; // Do something with a number
-//       }
-
-//       // Example
-//       if (event.target.innerText === "*") {
-//         // Do something with this operator
-//       }
-//     }
-//   });
-// });
+const displayContent = display.textContent;
 
 /*-------------------------------- Variables --------------------------------*/
 
@@ -40,7 +19,8 @@ calculator.addEventListener("click", (event) => {
     if (event.target.innerText === "0") {
       display.textContent += 0;
     } else if (event.target.innerText === "1") {
-      display.textContent += 1;
+      // display.textContent += 1;
+      setNumbers(1);
     } else if (event.target.innerText === "2") {
       display.textContent += 2;
     } else if (event.target.innerText === "3") {
@@ -98,3 +78,6 @@ calculator.addEventListener("click", (event) => {
 });
 
 /*-------------------------------- Functions --------------------------------*/
+const setNumbers = (num) = {
+  return displayContent += num;
+}
