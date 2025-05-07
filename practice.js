@@ -24,7 +24,7 @@ const computeRemainder = (dividend, divisor) => {
   if (divisor === 0) {
     return Infinity;
   }
-  const quotient = Math.floor(dividend / divisor);
+  const quotient = Math.floor(dividend / divisor); //Conventional Method without using % Operator
   return dividend - quotient * divisor;
 };
 

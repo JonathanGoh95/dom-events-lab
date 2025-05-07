@@ -2,7 +2,6 @@
 const buttons = document.querySelectorAll(".button");
 const calculator = document.querySelector("#calculator");
 const display = document.querySelector(".display");
-const displayContent = display.textContent;
 
 /*-------------------------------- Variables --------------------------------*/
 
@@ -19,8 +18,7 @@ calculator.addEventListener("click", (event) => {
     if (event.target.innerText === "0") {
       display.textContent += 0;
     } else if (event.target.innerText === "1") {
-      // display.textContent += 1;
-      setNumbers(1);
+      display.textContent += 1;
     } else if (event.target.innerText === "2") {
       display.textContent += 2;
     } else if (event.target.innerText === "3") {
@@ -58,26 +56,30 @@ calculator.addEventListener("click", (event) => {
   if (event.target.innerText === "=") {
     if (display.textContent.includes("+")) {
       let result = display.textContent.split("+").map(Number);
-      let output = result.reduce((acc, num) => acc + num);
-      display.textContent = output;
+      display.textContent = operatorFuncs("+", result);
     } else if (display.textContent.includes("-")) {
       let result = display.textContent.split("-").map(Number);
-      let output = result.reduce((acc, num) => acc - num);
-      display.textContent = output;
+      display.textContent = operatorFuncs("-", result);
     } else if (display.textContent.includes("*")) {
       let result = display.textContent.split("*").map(Number);
-      let output = result.reduce((acc, num) => acc * num);
-      display.textContent = output;
+      display.textContent = operatorFuncs("*", result);
     } else if (display.textContent.includes("/")) {
       let result = display.textContent.split("/").map(Number);
-      let output = result.reduce((acc, num) => acc / num);
-      display.textContent = output;
+      display.textContent = operatorFuncs("/", result);
     }
     setTimeout(() => (display.textContent = ""), 5000); //Clears Display within 5 seconds after clicking the Equal Button
   }
 });
 
 /*-------------------------------- Functions --------------------------------*/
-const setNumbers = (num) = {
-  return displayContent += num;
-}
+const operatorFuncs = (oper, output) => {
+  if (oper === "+") {
+    return output.reduce((acc, num) => acc + num);
+  } else if (oper === "-") {
+    return output.reduce((acc, num) => acc - num);
+  } else if (oper === "*") {
+    return output.reduce((acc, num) => acc * num);
+  } else if (oper === "/") {
+    return output.reduce((acc, num) => acc / num);
+  }
+};
