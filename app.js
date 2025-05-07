@@ -69,9 +69,9 @@ calculator.addEventListener("click", (event) => {
       display.textContent = operatorFuncs("/", result);
     }
 
-    //Clears Display within 5 seconds after clicking the Equal Button
+    //Set Display back to 0 within 5 seconds after clicking the Equal Button
     const dispTimeout = setTimeout(() => {
-      display.textContent = "";
+      display.textContent = "0";
     }, 5000);
     //If user clicks a number of operator button within 5 seconds of clicking the Equal button, the timeout function will be removed.
     calculator.addEventListener("click", (event) => {
