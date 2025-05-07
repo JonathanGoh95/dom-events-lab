@@ -14,47 +14,47 @@ calculator.addEventListener("click", (event) => {
   }
   //Appends the respective numbers to the display upon clicking
   if (event.target.classList.contains("number")) {
-    if (event.target.innerText === "0") {
+    if (event.target.textContent === "0") {
       display.textContent += 0;
-    } else if (event.target.innerText === "1") {
+    } else if (event.target.textContent === "1") {
       display.textContent += 1;
-    } else if (event.target.innerText === "2") {
+    } else if (event.target.textContent === "2") {
       display.textContent += 2;
-    } else if (event.target.innerText === "3") {
+    } else if (event.target.textContent === "3") {
       display.textContent += 3;
-    } else if (event.target.innerText === "4") {
+    } else if (event.target.textContent === "4") {
       display.textContent += 4;
-    } else if (event.target.innerText === "5") {
+    } else if (event.target.textContent === "5") {
       display.textContent += 5;
-    } else if (event.target.innerText === "6") {
+    } else if (event.target.textContent === "6") {
       display.textContent += 6;
-    } else if (event.target.innerText === "7") {
+    } else if (event.target.textContent === "7") {
       display.textContent += 7;
-    } else if (event.target.innerText === "8") {
+    } else if (event.target.textContent === "8") {
       display.textContent += 8;
-    } else if (event.target.innerText === "9") {
+    } else if (event.target.textContent === "9") {
       display.textContent += 9;
     }
   }
 
   //Appends the respective operator symbols to the display upon clicking
   if (event.target.classList.contains("operator")) {
-    if (event.target.innerText === "+") {
+    if (event.target.textContent === "+") {
       display.textContent += "+";
-    } else if (event.target.innerText === "-") {
+    } else if (event.target.textContent === "-") {
       display.textContent += "-";
-    } else if (event.target.innerText === "*") {
+    } else if (event.target.textContent === "*") {
       display.textContent += "*";
-    } else if (event.target.innerText === "/") {
+    } else if (event.target.textContent === "/") {
       display.textContent += "/";
-    } else if (event.target.innerText === "C") {
+    } else if (event.target.textContent === "C") {
       //Sets the display value to 0 when the 'C' button is clicked
       display.textContent = "0";
     }
   }
 
   //Performs the respective arithmetic operations
-  if (event.target.innerText === "=") {
+  if (event.target.textContent === "=") {
     if (display.textContent.includes("+")) {
       let result = display.textContent.split("+").map(Number);
       display.textContent = operatorFuncs("+", result);
