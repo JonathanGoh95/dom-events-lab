@@ -15,6 +15,9 @@ calculator.addEventListener("click", (event) => {
   //Appends the respective numbers to the display upon clicking
   if (event.target.classList.contains("number")) {
     if (event.target.textContent === "0") {
+      if (display.textContent === 0) {
+        display.textContent = 0;
+      }
       display.textContent += 0;
     } else if (event.target.textContent === "1") {
       display.textContent += 1;
